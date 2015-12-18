@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="hi" basedir="." default="buildlib" xmlns:ivy="antlib:org.apache.ivy.ant">
+    <property environment="env"/>
+    <property file="${env.ASHOLE_HOME}/conf/ashole.properties"/>
+    <import file="${ashole.antmodule.dir}/common.xml" />
+    <import file="${ashole.antmodule.dir}/compile-common.xml" />
+    <property name="FLEX_HOME" value="${air.home}" />
+    <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+    <target name="buildlib">
+        <echo message="${FLEX_HOME}/frameworks/flex-config.xml"/>
+        <antcall target="compile-swc">
+            <param name="config.path" value="${FLEX_HOME}/frameworks/air-config.xml" />
+            <param name="target.path" value="${target.dir}" />
+            <param name="target.name" value="macaw" />
+            <param name="source.dir" value="src" />
+            <param name="lib.dir" value="lib" />
+            <param name="snd.dir" value="lib2" />
+            <param name="debug" value="true" />
+            <param name="meta.publisher" value="${ashole.publisher}" />
+            <param name="meta.creator" value="${ashole.creator}" />
+            <param name="meta.description" value="${ashole.description}" />
+        </antcall>
+    </target>
+
+    <target  name="compile-swc" depends="compile-pre">
+        <echo message="source path:${source.dir}" />
+        <echo message="lib path:${lib.dir}" />
+        <compc output="${target.path}/${target.name}.swc"
+               actionscript-file-encoding="UTF-8"
+               debug="${debug}"
+               verbose-stacktraces="${debug}"
+               static-link-runtime-shared-libraries="true"
+               benchmark="true"
+               incremental="false"
+               swf-version="22"
+                >
+            <load-config filename="${config.path}" />
+            <source-path path-element="${source.dir}"/>
+            <include-sources dir="${source.dir}" includes="*" />
+            <external-library-path  dir="${lib.dir}" append="true">
+                <include name="*.swc" />
+            </external-library-path>
+            <external-library-path  dir="${snd.dir}" append="true">
+                <include name="*.swc" />
+            </external-library-path>
+        </compc>
+    </target>
+
+    <target name="buildapp" depends="publish">
+        <antcall target="compile-swf">
+            <param name="config.path" value="${FLEX_HOME}/frameworks/flex-config.xml" />
+            <param name="target.path" value="${target.dir}" />
+            <param name="target.name" value="macaw" />
+            <param name="source.dir" value="src" />
+            <param name="lib.dir" value="lib" />
+            <param name="debug" value="false" />
+            <param name="meta.publisher" value="${ashole.publisher}" />
+            <param name="meta.creator" value="${ashole.creator}" />
+            <param name="meta.description" value="${ashole.description}" />
+        </antcall>
+    </target>
+
+    <target name="publish-lib" depends="buildlib">
+        <antcall target="publish">
+            <param name="pub-resolver" value="local-private" />
+        </antcall>
+    </target>
+</project>

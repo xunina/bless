@@ -2,8 +2,16 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="hi">
     <configurations>
-      <configuration name="hi" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/hi" use-html-wrapper="true" wrapper-template-path="$MODULE_DIR$/html-template">
+      <configuration name="hi" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/hi" wrapper-template-path="$MODULE_DIR$/html-template">
         <dependencies target-player="11.1">
+          <entries>
+            <entry library-id="da8f0106-6e1a-47eb-ae81-17e2eec98d70">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry module-name="alo7_text_engine" build-configuration-name="alo7_text_engine">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
           <sdk name="flex" />
         </dependencies>
         <compiler-options />
@@ -21,5 +29,17 @@
     </content>
     <orderEntry type="jdk" jdkName="flex" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="da8f0106-6e1a-47eb-ae81-17e2eec98d70" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module" module-name="alo7_text_engine" exported="" />
   </component>
 </module>
