@@ -4,13 +4,13 @@
 package {
 import flash.display.Sprite;
 
-/**Êı×Ö×ª»»³Éstring£¨toString()£©£¬charAt()Ë³ĞòÈ¡³ö·ÅÈëÊı×éÖĞ*/
+/**æ•°å­—è½¬æ¢æˆstringï¼ˆtoString()ï¼‰ï¼ŒcharAt()é¡ºåºå–å‡ºæ”¾å…¥æ•°ç»„ä¸­*/
 public class NumToArr extends Sprite{
-    /**Ô­Ê¼µÄÊı×Ö*/
+    /**åŸå§‹çš„æ•°å­—*/
     var num:int;
-    /**Êı×Ö×ª»»³ÉµÄString*/
+    /**æ•°å­—è½¬æ¢æˆçš„String*/
     var numStr:String;
-    /**string×ª»»³ÉµÄ×Ö·û*/
+    /**stringè½¬æ¢æˆçš„å­—ç¬¦*/
     var numArr:Array;
     public function NumToArr() {
         num=123455;
@@ -18,7 +18,7 @@ public class NumToArr extends Sprite{
         numArr=new Array();
         strNumToChar(numStr,numStr.length);
     }
-    /**½«string×ª»»Îª×Ö·û´®²¢Êä³ö*/
+    /**å°†stringè½¬æ¢ä¸ºå­—ç¬¦ä¸²å¹¶è¾“å‡º*/
     public function strNumToChar(str:String,length){
         for(var i:int=0;i<length;i++){
             numArr[i]=str.charAt(i);
