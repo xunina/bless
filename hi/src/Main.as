@@ -6,6 +6,8 @@ import flash.display.Sprite;
 
 public class Main  extends Sprite
 {
+    private var _arrToStr:ArrToStr;
+    private var _numToArr:NumToArr;
     public function Main() {
         trace("Hello world");
         trace("");
@@ -15,6 +17,9 @@ public class Main  extends Sprite
        // StringUtils.trimToEmpty("     ")       = "";
         //StringUtils.trimToEmpty("abc")         = "abc";
         //StringUtils.trimToEmpty("    abc    ") = "abc";
+
+        _arrToStr= new ArrToStr();
+        _numToArr = new NumToArr();
     }
 }
 }
