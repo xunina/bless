@@ -731,7 +731,7 @@
       <workItem from="1450410497828" duration="276000" />
       <workItem from="1450410924754" duration="9847000" />
       <workItem from="1450426949098" duration="5000" />
-      <workItem from="1450427054565" duration="1636000" />
+      <workItem from="1450427054565" duration="2076000" />
     </task>
     <task id="LOCAL-00001" summary="update encoding">
       <created>1450427292399</created>
@@ -743,7 +743,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50047000" />
+    <option name="totallyTimeSpent" value="50487000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,7 +755,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1190,7 +1190,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
