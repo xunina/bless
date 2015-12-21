@@ -15,13 +15,14 @@ public class ArrToStr extends Sprite{
     /**输出的字符串*/
     private var _strI:String;
     /**_arrI的下标*/
-    var j:int=0;
+
     public function ArrToStr() {
         _arr=["556","44","5553123"];
         _arrI=new Array();
         _strI=new String();
 
         //**转换为字符串*/
+        //tip 使用数组的join方法
         for(var i:int=0;i<_arr.length;i++){
             if(i==0){//去除前面的null
                 _str=_arr[i];
@@ -29,7 +30,7 @@ public class ArrToStr extends Sprite{
                 _str += _arr[i];
             }
         }
-
+        var j:int=0;
 
         for(var i:int=0;i<_str.length;i++){
             //**每3个字符截取一次*/
@@ -56,6 +57,20 @@ public class ArrToStr extends Sprite{
             }
 
         }
+
+        trace(convert(1));
+        trace(convert(123));//ecpect 123
+        trace(convert(123456));//ecpect 123,456
+    }
+
+    /**
+     * 尝试使用String#split
+     * 尝试使用Array#reverse,Array#join
+     * 尝试使用字符串拼接
+     */
+    public function convert(input:uint):String
+    {
+
 
     }
 
