@@ -16,6 +16,7 @@ public class Test extends Sprite{
         _type = "circle";
         addShape(r,_type);
     }
+
     public function addShape(r,_type){
         newShape = new Circle(r,_type);
     }
