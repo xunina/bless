@@ -38,7 +38,6 @@ public class ArrToStr extends Sprite{
                 _arrI[j]=_str.substring(i-2,i+1);//0-2,3-5
                 _arrI[j]=_arrI[j];
                 j++;
-
             }
             /**若最后余下一个或两个字符，则将其添加进数组*/
             if(_str.length%3==2){
@@ -58,6 +57,16 @@ public class ArrToStr extends Sprite{
 
         }
 
+        var count = 0;
+        for(var i:int = 0;i<10;i++) {
+            count ++;
+            if(count ==4) {
+                count = 0
+            }
+            else {
+            }
+        }
+
         trace(convert(1));
         trace(convert(123));//ecpect 123
         trace(convert(123456));//ecpect 123,456
@@ -65,11 +74,31 @@ public class ArrToStr extends Sprite{
 
     /**
      * 尝试使用String#split
-     * 尝试使用Array#reverse,Array#join
+     * 尝试使用Array#reverse(倒转数组),Array#join(将数组中的元素转换为字符串、在元素间插入指定的分隔符、连接这些元素然后返回结果字符串。)
      * 尝试使用字符串拼接
      */
-    public function convert(input:uint):String
-    {
+    public function convert(input:uint):String {
+        var str:String;//返回的字符串
+        var numToString:String;//数字转成的字符串
+        var arr:Array;//数字转成且已翻转的数组
+        var arrThree:Array;//三个一组的数组
+        var strJoin:String;
+        numToString = input.toString();
+        arr = numToString.split("").reverse();
+        arrThree = new Array();
+        for(var i:int = 0;i<arr.length;i++){
+            if(i % 4 == 3){
+                arrThree.push(arr[i]);
+            }
+            else{
+                if(!arrThree.length)arrThree.push("");
+                arrThree[arrThree.length - 1] += arr[i];
+            }
+        }
+        strJoin = arrThree.join(",");
+        str = strJoin.split("").reverse().join("");
+        return str;
+
 
 
     }
