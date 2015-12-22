@@ -70,14 +70,17 @@ public class ArrToStr extends Sprite{
         trace(convert(1));
         trace(convert(123));//ecpect 123
         trace(convert(123456));//ecpect 123,456
+        trace(convert(3456788994));
+        trace(convert(123456789));
     }
 
     /**
-     * 尝试使用String#split
-     * 尝试使用Array#reverse(倒转数组),Array#join(将数组中的元素转换为字符串、在元素间插入指定的分隔符、连接这些元素然后返回结果字符串。)
+     * 尝试使用String#split()
+     * 尝试使用Array#reverse()(倒转数组),Array#join()(将数组中的元素转换为字符串、在元素间插入指定的分隔符、连接这些元素然后返回结果字符串。)
      * 尝试使用字符串拼接
+     * Array#push() (将一个或多个元素添加到数组的结尾，并返回该数组的新长度。)
      */
-    public function convert(input:uint):String {
+    public function convert(input:uint):String {//uint可表示的最大的32 位无符号整数4,294,967,295
         var str:String;//返回的字符串
         var numToString:String;//数字转成的字符串
         var arr:Array;//数字转成且已翻转的数组
@@ -87,12 +90,14 @@ public class ArrToStr extends Sprite{
         arr = numToString.split("").reverse();
         arrThree = new Array();
         for(var i:int = 0;i<arr.length;i++){
-            if(i % 4 == 3){
-                arrThree.push(arr[i]);
+            if(i % 3 == 0 && i != 0){
+                arrThree.push(arr[i]);//每三个分完一组后，将下一个内容放入数组当前下标的下一个位置中
             }
             else{
-                if(!arrThree.length)arrThree.push("");
-                arrThree[arrThree.length - 1] += arr[i];
+                if(!arrThree.length) {
+                    arrThree.push("");//arrayThree为空数组，则添加一个空字符串
+                }
+                arrThree[arrThree.length - 1] += arr[i];//为当前下标中的内容追加字符串
             }
         }
         strJoin = arrThree.join(",");
