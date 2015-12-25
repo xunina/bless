@@ -18,8 +18,8 @@ public class TimeFormatCountDown extends Sprite{
     private var _inputCountDownTime:TextField;//输入倒计时时间的文本框
 
     private var _countDownTime:uint;//倒计时的时间
-    private var _minuteTime:uint;//分钟
-    private var _secondTime:uint;//秒数
+//    private var _minuteTime:uint;//分钟
+//    private var _secondTime:uint;//秒数
 
     public function TimeFormatCountDown() {
 
@@ -74,8 +74,8 @@ public class TimeFormatCountDown extends Sprite{
         _countDownText.text = "";//计时器重新开始，将文本框置为空
         _formatCountDownText.text = "";
 
-        _minuteTime = _countDownTime/60;//获取分钟
-        _secondTime = _countDownTime%60;//获取秒数
+//        _minuteTime = _countDownTime/60;//获取分钟
+//        _secondTime = _countDownTime%60;//获取秒数
 
         _myTimer = new Timer(1000,_countDownTime+1);//比倒计时的时间多1秒，因为它要静止在0秒
         _myTimer.addEventListener(TimerEvent.TIMER,onTimer);
@@ -84,16 +84,41 @@ public class TimeFormatCountDown extends Sprite{
     }
     //计时器响应事假  先赋给文本框，再改变其值
     public function onTimer(te:TimerEvent){
+        if(_countDownTime<=0)return;
+        _countDownTime--;
         _countDownText.text = "倒计时"+_countDownTime+"秒";
-        var spaceTime:uint = _countDownTime--;
 
-        _formatCountDownText.text = _minuteTime+":"+_secondTime;
-        if(spaceTime % 60 ==0){//如果剩余一个整的分钟，则将分钟-1，秒钟变59
-            _minuteTime = _minuteTime - 1;
-            _secondTime = 59;
-        }else {//如果不是整的一分钟，则秒数--，分数不变
-            _secondTime--;
+        _formatCountDownText.text = formatTime(_countDownTime);//_minuteTime+":"+_secondTime;
+//        if(spaceTime % 60 ==0){//如果剩余一个整的分钟，则将分钟-1，秒钟变59
+//            _minuteTime = _minuteTime - 1;
+//            _secondTime = 59;
+//        }else {//如果不是整的一分钟，则秒数--，分数不变
+//            _secondTime--;
+//        }
+    }
+
+    private function formatTime(leftTime:uint):String{
+        var min:uint = leftTime /60;
+        var second:uint = leftTime%60;
+        var result:String= "";
+        if(min<10){
+            result += "0"+min;
         }
+        else
+        {
+            result += min;
+        }
+
+        result += ":";
+        if(second<10){
+            result += "0"+second;
+        }
+        else{
+            result += second;
+        }
+
+        return result;
+
     }
     //计时器停止
     public function onTimerComplete(te:TimerEvent){
