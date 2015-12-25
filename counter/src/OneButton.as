@@ -5,6 +5,8 @@ package {
 import flash.display.SimpleButton;
 import flash.display.Sprite;
 import flash.events.MouseEvent;
+import flash.text.TextField;
+import flash.text.TextField;
 
 public class OneButton extends Sprite{
     public function OneButton() {
@@ -20,19 +22,20 @@ public class OneButton extends Sprite{
         huitu(c,0x1155ff);
         var d:Sprite = new Sprite();
         huitu(d,0xffffff);
-        //CuPlayer.com提示:创建按钮对象
+        //创建按钮对象
         var abc:SimpleButton = new SimpleButton(a,b,c,d);
-        abc.x = abc.y = 50;
+        abc.x = abc.y = 200;
+
+
         this.addChild(abc);
     }
-    //CuPlayer.com提示:统一调用的绘图按钮方法
+    //统一调用的绘图按钮方法
     private function huitu(obj:Sprite, col:uint):void
     {
         obj.graphics.beginFill(col);
-        obj.graphics.drawRoundRect(0,0,100,100,20,20);
+        obj.graphics.drawRoundRect(0,0,100,50,20,20);
         obj.graphics.endFill();
     }
-
 
 
 
