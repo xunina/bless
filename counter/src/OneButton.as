@@ -12,20 +12,20 @@ public class OneButton extends Sprite{
     }
     private function init():void
     {
-        var a:Sprite = new Sprite();        //°´Å¥Ì§ÆğÊ±ÏÔÊ¾×´Ì¬
+        var a:Sprite = new Sprite();        //æŒ‰é’®æŠ¬èµ·æ—¶æ˜¾ç¤ºçŠ¶æ€
         huitu(a,0x11ff55);
-        var b:Sprite = new Sprite();        //·Åµ½°´Å¥ÉÏÏÔÊ¾×´Ì¬
+        var b:Sprite = new Sprite();        //æ”¾åˆ°æŒ‰é’®ä¸Šæ˜¾ç¤ºçŠ¶æ€
         huitu(b,0xff1155);
-        var c:Sprite = new Sprite();        //°´ÏÂ°´Å¥ÏÔÊ¾×´Ì¬
+        var c:Sprite = new Sprite();        //æŒ‰ä¸‹æŒ‰é’®æ˜¾ç¤ºçŠ¶æ€
         huitu(c,0x1155ff);
         var d:Sprite = new Sprite();
         huitu(d,0xffffff);
-        //CuPlayer.comÌáÊ¾:´´½¨°´Å¥¶ÔÏó
+        //CuPlayer.comæç¤º:åˆ›å»ºæŒ‰é’®å¯¹è±¡
         var abc:SimpleButton = new SimpleButton(a,b,c,d);
         abc.x = abc.y = 50;
         this.addChild(abc);
     }
-    //CuPlayer.comÌáÊ¾:Í³Ò»µ÷ÓÃµÄ»æÍ¼°´Å¥·½·¨
+    //CuPlayer.comæç¤º:ç»Ÿä¸€è°ƒç”¨çš„ç»˜å›¾æŒ‰é’®æ–¹æ³•
     private function huitu(obj:Sprite, col:uint):void
     {
         obj.graphics.beginFill(col);
