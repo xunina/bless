@@ -7,24 +7,25 @@ import flash.events.MouseEvent;
 
 public class MainCountDown extends Sprite{
     private var leftTime:uint;
-    var oneButton:OneButton;
-    var timeFormatCountDown:TimeFormatCountDown;
+    private var oneButton:OneButton;
+    private var timeFormatCountDown:TimeFormatCountDown;
 
     public function MainCountDown() {
-        displayList();
-        oneButton.addEventListener(MouseEvent.CLICK, onClick);
+        init();
+        oneButton.addEventListener(MouseEvent.CLICK, onButtonClickHandler);
     }
 
-    private function onClick(e:MouseEvent){
+    private function onButtonClickHandler(e:MouseEvent){
         leftTime = 123;
         timeFormatCountDown.init(leftTime);
     }
 
-    private function displayList(){
+    private function init(){
         oneButton = new OneButton();
         this.addChild(oneButton);
         timeFormatCountDown = new TimeFormatCountDown();
         this.addChild(timeFormatCountDown);
+        //TODO 需要在这里显示计时器,但是不要开始倒计时
     }
 }
 }
