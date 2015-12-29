@@ -1,7 +1,7 @@
 /**
  * Created by nina.xu on 2015/12/17.
  */
-package {
+package practiseArrStr {
 import flash.display.Sprite;
 
 

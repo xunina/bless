@@ -4,8 +4,6 @@
 package shape {
 import flash.display.Sprite;
 
-import shape.IArea;
-
 public class Circle extends Sprite implements IArea{
     static private var _type:String = "circle";
     var area:Number;

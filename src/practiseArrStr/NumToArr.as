@@ -1,7 +1,7 @@
 /**
  * Created by nina.xu on 2015/12/18.
  */
-package {
+package practiseArrStr {
 import flash.display.Sprite;
 
 /**数字转换成string（toString()），charAt()顺序取出放入数组中*/

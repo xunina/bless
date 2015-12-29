@@ -1,7 +1,7 @@
 /**
  * Created by nina.xu on 2015/12/25.
  */
-package {
+package countDown {
 import flash.display.Sprite;
 import flash.events.MouseEvent;
 

@@ -1,7 +1,7 @@
 /**
  * Created by nina.xu on 2015/12/24.
  */
-package {
+package countDown.practice {
 import flash.display.Sprite;
 import flash.events.TimerEvent;
 import flash.text.TextField;

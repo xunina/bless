@@ -1,7 +1,7 @@
 /**
  * Created by nina.xu on 2015/12/24.
  */
-package {
+package countDown {
 import flash.display.SimpleButton;
 import flash.display.Sprite;
 

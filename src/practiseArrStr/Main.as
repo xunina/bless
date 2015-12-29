@@ -1,8 +1,10 @@
 /**
  * Created by nina.xu on 2015/12/16.
  */
-package {
+package practiseArrStr {
 import flash.display.Sprite;
+
+import org.as3commons.lang.StringUtils;
 
 public class Main  extends Sprite
 {
@@ -12,6 +14,7 @@ public class Main  extends Sprite
         trace("Hello world");
         trace("");
         trace("1");
+        trace(StringUtils.trimToEmpty(" tr "));
        // StringUtils.trimToEmpty(null)          = "";
        // StringUtils.trimToEmpty("")            = "";
        // StringUtils.trimToEmpty("     ")       = "";

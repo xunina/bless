@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="hi" basedir="." default="buildlib" xmlns:ivy="antlib:org.apache.ivy.ant">
+<project name="hi" basedir="hi" default="buildlib" xmlns:ivy="antlib:org.apache.ivy.ant">
     <property environment="env"/>
     <property file="${env.ASHOLE_HOME}/conf/ashole.properties"/>
     <import file="${ashole.antmodule.dir}/common.xml" />

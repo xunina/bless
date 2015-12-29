@@ -3,7 +3,6 @@
  */
 package shape {
 import flash.display.Sprite;
-import flash.sampler.Sample;
 
 public class Test extends Sprite{
     var newShape:IArea;
@@ -13,12 +12,12 @@ public class Test extends Sprite{
 
     public function Test() {
         r = 123;
-        _type = "circle";
+        _type = "square";
         addShape(r,_type);
     }
 
     public function addShape(r,_type){
-        newShape = new Circle(r,_type);
+        newShape = new Square(r,_type);
     }
 
 }

@@ -1,7 +1,7 @@
 /**
  * Created by nina.xu on 2015/12/21.
  */
-package test {
+package practiseArrStr.practice {
 import flash.display.Sprite;
 
 public class ArrayJoin  extends Sprite{

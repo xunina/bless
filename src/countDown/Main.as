@@ -1,4 +1,4 @@
-package {
+package countDown {
 
 import flash.display.Loader;
 import flash.display.MovieClip;
@@ -31,18 +31,6 @@ public class Main extends Sprite {
         this.addChild(oneButton);
     }
     public function loaded(event:Event):void{
-        /*var myText2 = event.target.content.get;
-        trace();
-        myText2.text = "0";
-        trace(myText2.text);
-
-        var myTextElement = loader.content;
-        myTextElement.text = "123";
-        trace(myTextElement.text);
-
-        var obj = event.currentTarget.content;
-        //obj.myText.text = "455";//出错
-        trace(obj.toString()+"123"+obj.toString()+"123"+obj.toLocaleString());*/
 
         var loadedSWF = event.target;
         var domin:ApplicationDomain =
