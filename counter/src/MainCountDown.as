@@ -6,7 +6,7 @@ import flash.display.Sprite;
 import flash.events.MouseEvent;
 
 public class MainCountDown extends Sprite{
-    private var leftTime:uint;
+    private var leftTime:uint = 123;
     private var oneButton:OneButton;
     private var timeFormatCountDown:TimeFormatCountDown;
 
@@ -16,7 +16,6 @@ public class MainCountDown extends Sprite{
     }
 
     private function onButtonClickHandler(e:MouseEvent){
-        leftTime = 123;
         timeFormatCountDown.init(leftTime);
     }
 
@@ -25,8 +24,8 @@ public class MainCountDown extends Sprite{
         this.addChild(oneButton);
         timeFormatCountDown = new TimeFormatCountDown();
         this.addChild(timeFormatCountDown);
-        //TODO 需要在这里显示计时器,但是不要开始倒计时
-        //TODO 按钮需要在左上角
+
+        timeFormatCountDown.displayList(leftTime);
     }
 }
 }

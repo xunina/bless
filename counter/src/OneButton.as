@@ -24,7 +24,6 @@ public class OneButton extends Sprite{
         huitu(d,0xffffff);
         //创建按钮对象
         var abc:SimpleButton = new SimpleButton(a,b,c,d);
-        abc.x = abc.y = 200;
 
 
         this.addChild(abc);

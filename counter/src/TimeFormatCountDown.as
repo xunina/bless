@@ -26,10 +26,9 @@ public class TimeFormatCountDown extends Sprite{
     public function init(leftTime:uint){
         if(_myTimer != null){
             _myTimer.reset()
-            _countDownText.text = "";//计时器重新开始，将文本框置为空
-            _formatCountDownText.text = "";
         }
-        displayList();
+        ///////////////////////
+//        displayList(leftTime,0);
 
         _countDownTime = leftTime;
 
@@ -41,12 +40,18 @@ public class TimeFormatCountDown extends Sprite{
     /**
      * 显示对象显示在显示列表中
      */
-    private function displayList(){
+    public function displayList(leftTime:uint){
         _countDownText = new TextField();
+        _formatCountDownText = new TextField();
+
+
+        setText(leftTime);
+
+
         _countDownText.x = _countDownText.y = 60;
         this.addChild(_countDownText);
 
-        _formatCountDownText = new TextField();
+
         _formatCountDownText.x = 60;
         _formatCountDownText.y = 80;
         this.addChild(_formatCountDownText)
@@ -55,8 +60,8 @@ public class TimeFormatCountDown extends Sprite{
     private function onTimer(te:TimerEvent){
         if(_countDownTime<=0)return;
         _countDownTime--;
-        _countDownText.text = "倒计时"+_countDownTime+"秒";
-        _formatCountDownText.text = formatTime(_countDownTime);//_minuteTime+":"+_secondTime;
+        ////////////////////////
+        setText(_countDownTime);
     }
     private function formatTime(leftTime:uint):String{
         var min:uint = leftTime /60;
@@ -85,6 +90,10 @@ public class TimeFormatCountDown extends Sprite{
     public function onTimerComplete(te:TimerEvent){
         _countDownText.text = "时间用完了哦(⊙o⊙)哦";
     }
-
+    private function setText(leftTime:uint){
+        _countDownTime = leftTime
+        _countDownText.text = "倒计时"+_countDownTime+"秒";
+        _formatCountDownText.text = formatTime(_countDownTime);//_minuteTime+":"+_secondTime;
+    }
 }
 }
