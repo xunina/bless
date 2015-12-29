@@ -72,7 +72,7 @@ package
             stage.scaleMode = StageScaleMode.NO_SCALE;
             init();
         }
-
+        //按钮始终位于最右边
         private function onResizeHandler(event:Event):void
         {
             switchButton.x = stage.stageWidth - SWITCH_BUTTON_WIDTH;
@@ -81,16 +81,17 @@ package
         private function onSwitchTaskHandler(e:MouseEvent):void
         {
             currentTaskIndex++;
+            //到达最后一个，从索引0处重新开始
             if (currentTaskIndex > tasks.length - 1)
             {
                 currentTaskIndex = 0;
             }
-
+            //从舞台上移除当前的任务
             if (currentTask)
             {
                 removeChild(currentTask);
             }
-
+            //添加下一个任务到舞台
             currentTask = new tasks[currentTaskIndex]();
             addChild(currentTask);
         }

@@ -4,5 +4,6 @@
 package shape {
 public interface IArea {
     function get type():String;
+    function get getArea():Number;
 }
 }

@@ -2,23 +2,38 @@
  * Created by nina.xu on 2015/12/18.
  */
 package shape {
+
 import flash.display.Sprite;
 
 public class Test extends Sprite{
-    var newShape:IArea;
-    var r:Number;
-    private var _area:Number;
+    private var newShape:Shape;
+    private var shapeList:Vector.<Shape>;
     private var _type:String;
 
-    public function Test() {
-        r = 123;
-        _type = "square";
-        addShape(r,_type);
+    public function Test(){
+        addShape("Square");
+        trace(getArea());
     }
 
-    public function addShape(r,_type){
-        newShape = new Square(r,_type);
+    public function addShape(_type:String){
+        shapeList = new Vector.<Shape>();
+        if(_type == "Circle"){
+            newShape = new Circle(10,_type);
+        }else if(_type == "Square"){
+            newShape = new Square(12,_type);
+        }
+        shapeList.push(newShape);
+    }
+    public function getArea():Number{
+        var area:Number = new Number();
+        for(var i:uint = 0;i<shapeList.length;i++){
+             area = shapeList[i].getArea;
+        }
+        return area;
     }
 
 }
 }
+
+
+

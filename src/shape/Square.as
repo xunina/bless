@@ -2,21 +2,22 @@
  * Created by nina.xu on 2015/12/18.
  */
 package shape {
-import flash.display.Sprite;
 
-public class Square extends Sprite implements IArea{
-    static private var _type:String = "square";
-    var area:Number;
+public class Square extends Shape{
+    private var width:Number;
+    private var _type:String;
 
-    public function Square(height:Number,_type){
-        getArea(height);
+    public function Square(width:Number,_type:String){
+        this.width = width;
+        this._type = _type;
     }
-    public  function getArea(height:Number){
-        area = height * height;
-        trace(area+"square");
-    }
-    public function get type():String {
+
+    override public function get type():String {
         return _type;
+    }
+
+    override public function get getArea():Number {
+        return width * width;
     }
 }
 }
