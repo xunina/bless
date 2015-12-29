@@ -3,10 +3,8 @@
  */
 package {
 import flash.display.Sprite;
-import flash.events.Event;
 import flash.events.TimerEvent;
 import flash.text.TextField;
-import flash.text.TextFieldType;
 import flash.utils.Timer;
 
 
@@ -17,8 +15,6 @@ public class TimeFormatCountDown extends Sprite{
     private var _formatCountDownText:TextField;//显示时间格式的倒计时
     private var _countDownTime:uint;//倒计时的时间
 
-
-
     /**
      * 传入倒计时时间，计时器初始化
      * @param leftTime
@@ -27,8 +23,6 @@ public class TimeFormatCountDown extends Sprite{
         if(_myTimer != null){
             _myTimer.reset()
         }
-        ///////////////////////
-//        displayList(leftTime,0);
 
         _countDownTime = leftTime;
 
@@ -44,13 +38,10 @@ public class TimeFormatCountDown extends Sprite{
         _countDownText = new TextField();
         _formatCountDownText = new TextField();
 
-
         setText(leftTime);
-
 
         _countDownText.x = _countDownText.y = 60;
         this.addChild(_countDownText);
-
 
         _formatCountDownText.x = 60;
         _formatCountDownText.y = 80;
@@ -60,7 +51,6 @@ public class TimeFormatCountDown extends Sprite{
     private function onTimer(te:TimerEvent){
         if(_countDownTime<=0)return;
         _countDownTime--;
-        ////////////////////////
         setText(_countDownTime);
     }
     private function formatTime(leftTime:uint):String{
@@ -91,7 +81,7 @@ public class TimeFormatCountDown extends Sprite{
         _countDownText.text = "时间用完了哦(⊙o⊙)哦";
     }
     private function setText(leftTime:uint){
-        _countDownTime = leftTime
+        _countDownTime = leftTime;
         _countDownText.text = "倒计时"+_countDownTime+"秒";
         _formatCountDownText.text = formatTime(_countDownTime);//_minuteTime+":"+_secondTime;
     }
