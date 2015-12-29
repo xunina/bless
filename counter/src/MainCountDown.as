@@ -26,6 +26,7 @@ public class MainCountDown extends Sprite{
         timeFormatCountDown = new TimeFormatCountDown();
         this.addChild(timeFormatCountDown);
         //TODO 需要在这里显示计时器,但是不要开始倒计时
+        //TODO 按钮需要在左上角
     }
 }
 }
