@@ -1,5 +1,7 @@
 package countDown {
 
+import countDown.OneButton;
+
 import flash.display.Loader;
 import flash.display.MovieClip;
 import flash.display.Shape;
@@ -11,15 +13,14 @@ import flash.system.ApplicationDomain;
 import flash.text.TextField;
 
 public class Main extends Sprite {
-    var loader:Loader;
+    private var loader:Loader;
+    private const FILE_PATH:String = "./myTextElement.swf";
 
     public function Main() {
 
-
-        //var loader:Loader = loadSwf();//加载swf
         loader= new Loader();
         //加载的路径是相对于输出目录的，所以将其放在了输出目录下
-        var url:URLRequest = new URLRequest("myTextElement.swf");
+        var url:URLRequest = new URLRequest(FILE_PATH);//
         loader.load(url);
         this.addChild(loader);
         loader.x = 400;
@@ -31,7 +32,6 @@ public class Main extends Sprite {
         this.addChild(oneButton);
     }
     public function loaded(event:Event):void{
-
         var loadedSWF = event.target;
         var domin:ApplicationDomain =
                 loadedSWF.applicationDomain as ApplicationDomain;
@@ -69,7 +69,7 @@ public class Main extends Sprite {
     public function loadSwf():Loader{
         var loader:Loader = new Loader();
         //加载的路径是相对于输出目录的，所以将其放在了输出目录下
-        var url:URLRequest = new URLRequest("myTextElement.swf");
+        var url:URLRequest = new URLRequest(FILE_PATH);//
         loader.load(url);
         this.addChild(loader);
         loader.x = 250;
