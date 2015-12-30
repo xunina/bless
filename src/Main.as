@@ -16,14 +16,16 @@ package
     import practiseArrStr.ArrToStr;
     import practiseArrStr.NumToArr;
 
-    public class Main extends Sprite
+import shape.Test;
+
+public class Main extends Sprite
     {
         public function Main()
         {
             addEventListener(Event.ADDED_TO_STAGE, onAddedHandler)
         }
 
-        private var tasks:Array = [MainCountDown, ArrToStr, NumToArr];
+        private var tasks:Array = [MainCountDown, ArrToStr, NumToArr,Test];
         private var switchButton:Sprite;
         private var currentTaskIndex:int = -1;
         private var currentTask:*;
