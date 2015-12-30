@@ -10,5 +10,7 @@
 数字转字符，主类为NumToArr.as；
 数组转特定的字符串，主类为ArrToStr.as
 
+## 组合小项目
+在combine包中，Main为主方法
 ## 说明
 每一个包下的practice包中为一些练习

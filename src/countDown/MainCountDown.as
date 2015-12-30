@@ -23,6 +23,7 @@ public class MainCountDown extends Sprite{
         oneButton = new OneButton();
         this.addChild(oneButton);
         timeFormatCountDown = new TimeFormatCountDown();
+        timeFormatCountDown.x = timeFormatCountDown.y = 50;
         this.addChild(timeFormatCountDown);
 
         timeFormatCountDown.displayList(leftTime);

@@ -1,7 +1,7 @@
 /**
  * Created by nina.xu on 2015/12/24.
  */
-package countDown {
+package combine {
 import flash.display.Sprite;
 import flash.events.TimerEvent;
 import flash.text.TextField;
@@ -21,7 +21,13 @@ public class TimeFormatCountDown extends Sprite{
      */
     public function init(leftTime:uint){
         if(_myTimer != null){
-            _myTimer.stop();
+            if(_myTimer.running == true){
+                _myTimer.stop();
+                return;
+            }else if(_myTimer.running == false){
+                _myTimer.start();
+                return;
+            }
         }
 
         _countDownTime = leftTime;
