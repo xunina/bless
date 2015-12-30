@@ -8,7 +8,7 @@ public class Shape implements IArea{
         return "";
     }
 
-    public function get getArea():Number {
+    public function get area():Number {
         return 0;
     }
 }

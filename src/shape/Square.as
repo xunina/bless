@@ -16,7 +16,7 @@ public class Square extends Shape{
         return _type;
     }
 
-    override public function get getArea():Number {
+    override public function get area():Number {
         return width * width;
     }
 }

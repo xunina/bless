@@ -4,6 +4,7 @@
 package shape {
 public interface IArea {
     function get type():String;
-    function get getArea():Number;
+    //一般函数名中包含get前缀的,那么请不要使用getter函数
+    function get area():Number;
 }
 }

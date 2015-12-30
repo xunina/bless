@@ -5,12 +5,12 @@ package shape {
 import shape.Shape;
 
 public class SimpleShapeFactory {
-    public function createShape(type:String):Shape{
-        var newShape:Shape = null;
-        if(type == "Circle"){
-            newShape = new Circle(10,type);
-        }else if(type == "Square"){
-            newShape = new Square(12,type);
+    public function createShape(radius:Number,type:String):Shape{
+        var newShape:Shape;
+        if(type == Test.CIRCLE){
+            newShape = new Circle(radius,type);
+        }else if(type == Test.SQUARE){
+            newShape = new Square(radius,type);
         }
         return newShape;
     }
