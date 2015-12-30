@@ -5,7 +5,9 @@
  */
 package
 {
-    import countDown.MainCountDown;
+import combine.Main;
+
+import countDown.MainCountDown;
 
     import flash.display.Sprite;
     import flash.display.StageAlign;
@@ -25,7 +27,7 @@ public class Main extends Sprite
             addEventListener(Event.ADDED_TO_STAGE, onAddedHandler)
         }
 
-        private var tasks:Array = [MainCountDown, ArrToStr, NumToArr,Test];
+        private var tasks:Array = [MainCountDown, ArrToStr, NumToArr,Test,combine.Main];
         private var switchButton:Sprite;
         private var currentTaskIndex:int = -1;
         private var currentTask:*;
