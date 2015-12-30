@@ -10,7 +10,7 @@ public class Main extends Sprite{
     private var buttonCountDown:OneButton;
     private var timeFormatCountDown:TimeFormatCountDown;
     private var buttonAddShape:OneButton;
-    private var leftTime:uint = 125;
+    private var leftTime:uint = 125;//计时器倒计时的秒数
     private var shapeTest:ShapeTest;
 
     public function Main() {
@@ -23,12 +23,12 @@ public class Main extends Sprite{
         buttonCountDown.addEventListener(MouseEvent.CLICK, onButtonCountDownClickHandler);
 
         timeFormatCountDown = new TimeFormatCountDown();
-        timeFormatCountDown.y = 50;
+        timeFormatCountDown.y = buttonCountDown.height;//紧邻buttonCountDo
         this.addChild(timeFormatCountDown);
         timeFormatCountDown.displayList(leftTime);
 
         buttonAddShape = new OneButton();
-        buttonAddShape.y = 150;
+        buttonAddShape.y = buttonCountDown.height + timeFormatCountDown.height;//紧邻timeFormatCountDown
         this.addChild(buttonAddShape);
         buttonAddShape.addEventListener(MouseEvent.CLICK, onButtonAddShapeClickHandler);
 
@@ -46,13 +46,16 @@ public class Main extends Sprite{
             type = ShapeTest.SQUARE;
         }
         col = Math.random()*1000000;
+
         shapeTest.countAndDraw(type,col);
-        shapeTest.x = Math.random()*150+Math.random()*100;
-        shapeTest.y = Math.random()*150+Math.random()*100;
+        setShapeTestXY();
+
         this.addChild(shapeTest);
-
     }
-
+    public function setShapeTestXY(){
+        shapeTest.x = Math.random()*OneButton.ONE_BUTTON_WIDTH+Math.random()+OneButton.ONE_BUTTON_HEIGHT;
+        shapeTest.y = OneButton.ONE_BUTTON_WIDTH+Math.random()*OneButton.ONE_BUTTON_WIDTH;
+    }
 
 
 }

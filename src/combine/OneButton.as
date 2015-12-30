@@ -6,6 +6,8 @@ import flash.display.SimpleButton;
 import flash.display.Sprite;
 
 public class OneButton extends Sprite{
+    internal static const ONE_BUTTON_WIDTH:int = 100;
+    internal static const ONE_BUTTON_HEIGHT:int = 50;
     public function OneButton() {
         init();
     }
@@ -28,7 +30,7 @@ public class OneButton extends Sprite{
     private function drawRoundRect(obj:Sprite, col:uint):void
     {
         obj.graphics.beginFill(col);
-        obj.graphics.drawRoundRect(0,0,100,50,20,20);
+        obj.graphics.drawRoundRect(0,0,ONE_BUTTON_WIDTH,ONE_BUTTON_HEIGHT,20,20);
         obj.graphics.endFill();
     }
 

@@ -15,6 +15,8 @@ public class TimeFormatCountDown extends Sprite{
     private var _formatCountDownText:TextField;//显示时间格式的倒计时
     private var _countDownTime:uint;//倒计时的时间
 
+    private const TEXT_HEIGHT:int = 30;
+
     /**
      * 传入倒计时时间，计时器初始化
      * @param leftTime
@@ -46,9 +48,10 @@ public class TimeFormatCountDown extends Sprite{
 
         setText(leftTime);
 
+        _countDownText.height = TEXT_HEIGHT;
         this.addChild(_countDownText);
-
-        _formatCountDownText.y = 50;
+        _formatCountDownText.height = TEXT_HEIGHT;
+        _formatCountDownText.y = TEXT_HEIGHT;
         this.addChild(_formatCountDownText)
     }
     //计时器响应事假  先赋给文本框，再改变其值

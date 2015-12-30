@@ -9,15 +9,15 @@ import flash.display.Sprite;
 public class ShapeTest extends Sprite{
     private var factory:SimpleShapeFactory;
     private var newShape:Shape;
-    static private var shapeList:Vector.<Shape>;
-    static private var area:Number = 0;
+    private static var shapeList:Vector.<Shape>;
+    private static var area:Number = 0;
 
     public static const CIRCLE:String = "Circle";
     public static const SQUARE:String = "Square";
 
     public function countAndDraw(type:String,col:uint){
         init();
-        var radius:int = Math.random()*100+Math.random()*50;
+        var radius:int = Math.random()*OneButton.ONE_BUTTON_WIDTH;
         addShape(type,radius,col);
         trace(radius,getArea());
 
@@ -41,12 +41,12 @@ public class ShapeTest extends Sprite{
         if(type == SQUARE){
             obj.graphics.beginFill(col);
             obj.alpha = 0.5;
-            obj.graphics.drawRect(100,0,radius,radius);
+            obj.graphics.drawRect(OneButton.ONE_BUTTON_WIDTH,0,radius,radius);
             obj.graphics.endFill();
         }else if(type == CIRCLE){
             obj.graphics.beginFill(col);
             obj.alpha = 0.5;
-            obj.graphics.drawCircle(radius+110,0,radius);
+            obj.graphics.drawCircle(radius+OneButton.ONE_BUTTON_WIDTH,0,radius);
             obj.graphics.endFill();
         }
         this.addChild(obj);
