@@ -93,6 +93,8 @@ public class MainView extends starling.display.Sprite{
         ShapeImage();
     }
 
+    //如何实现重置
+    //请封装
     private function ShapeImage()
     {
         //图形的填充颜色
@@ -125,6 +127,9 @@ public class MainView extends starling.display.Sprite{
 
     }
     private function getArea(flag:uint,bitmapDataWidth:Number):Number{
+        //area 是全局变量
+        //封装更多图形
+        //0.5?
         if(flag < 0.5){//圆
             area += Math.PI * bitmapDataWidth/2 *bitmapDataWidth/2
         }else{
