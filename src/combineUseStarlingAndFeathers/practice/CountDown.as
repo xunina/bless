@@ -1,20 +1,16 @@
 /**
  * Created by nina.xu on 2015/12/31.
  */
-package combineUseStarlingAndFeathers {
+package combineUseStarlingAndFeathers.practice {
 import feathers.controls.Button;
 import feathers.controls.Label;
 import feathers.controls.text.TextBlockTextRenderer;
 import feathers.core.ITextRenderer;
 
 import flash.display.BitmapData;
-
-import flash.display.Sprite;
-
 import flash.display.Sprite;
 
 import flash.text.engine.ElementFormat;
-
 import flash.text.engine.FontDescription;
 
 import starling.display.Image;
@@ -29,10 +25,11 @@ public class CountDown extends starling.display.Sprite{
 
     private var LABEL_HEIGHT = 25;
     public function initHandler(){
-
+        trace("jfkdlajfdklsafjdklsghrieot48h");
     }
 
     public function initView(){
+        trace("womendouyou yigejia mingzijiaozhongguo ")
         var shape:flash.display.Sprite = new flash.display.Sprite();
         shape.graphics.beginFill(0x000000,0.5);
         shape.graphics.drawCircle(0,0,12);

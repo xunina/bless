@@ -36,19 +36,19 @@ public class Main extends Sprite
 
         private function init():void
         {
-            initView();
-            initListener();
-            onSwitchTaskHandler(null);
+            initView();//完成按钮的显示
+            initListener();//当swf的大小改变时，按钮始终位于右侧
+            onSwitchTaskHandler(null);//逻辑处理，添加或删除任务
         }
 
         private function initListener():void
         {
-            stage.addEventListener(Event.RESIZE, onResizeHandler);
+            stage.addEventListener(Event.RESIZE, onResizeHandler);//当 Stage 对象的 scaleMode 属性设置为 StageScaleMode.NO_SCALE 且 SWF 文件大小经过重新调整时进行调度。
         }
 
         private function initView():void
         {
-            switchButton = createButton(SWITCH_BUTTON_WIDTH, SWITCH_BUTTON_HEIGHT, onSwitchTaskHandler, stage.stageWidth - SWITCH_BUTTON_WIDTH, 0);
+            switchButton = createButton(SWITCH_BUTTON_WIDTH, SWITCH_BUTTON_HEIGHT, onSwitchTaskHandler, stage.stageWidth - SWITCH_BUTTON_WIDTH, 0);//传递onSwithTaskHandler给MouseEvent.CLICK事件
             addChild(switchButton);
         }
 
