@@ -17,9 +17,9 @@ public class CountDown extends Sprite{
     private var _myTimer:Timer;
     private var _countDownTime:uint = 10;
 
-    private var TEXT_WIDTH = 100;
-    private var TEXT_HEIGHT = 25;
-    public function displayTimeText(leftTime:uint){
+    private var TEXT_WIDTH:uint = 100;
+    private var TEXT_HEIGHT:uint = 25;
+    public function displayTimeText(leftTime:uint):void{
         _countDownText = new TextField(TEXT_WIDTH, TEXT_HEIGHT, "", "Verdana", 16, 0, true);
         this.addChild(_countDownText);
 
@@ -29,7 +29,7 @@ public class CountDown extends Sprite{
 
         setText();
     }
-    public function initCountDown(){
+    public function initCountDown():void{
         if(_myTimer != null){
             if(_myTimer.running == true){
                 _myTimer.stop();
@@ -45,7 +45,7 @@ public class CountDown extends Sprite{
         _myTimer.start();
     }
     //计时器响应事假  先赋给文本框，再改变其值
-    private function onTimer(te:TimerEvent){
+    private function onTimer(te:TimerEvent):void{
         if(_countDownTime<=0)return;
         _countDownTime--;
         setText();
@@ -74,17 +74,17 @@ public class CountDown extends Sprite{
 
     }
     //计时器停止
-    public function onTimerComplete(te:TimerEvent){
+    public function onTimerComplete(te:TimerEvent):void{
         _countDownText.text = "over";
     }
-    private function setText(time:uint = 0){
+    private function setText(time:uint = 0):void{
         if(time != 0){
             _countDownTime = time;
         }
         _countDownText.text = _countDownTime+"";
         _formatCountDownText.text = formatTime(_countDownTime);//_minuteTime+":"+_secondTime;
     }
-    public function reset(time:uint){
+    public function reset(time:uint):void {
         if(!_myTimer){
             return;
         }

@@ -1,6 +1,4 @@
-/**
- * Created by nina.xu on 2016/1/4.
- */
+
 package combineUseStarlingAndFeathers.shape {
 import starling.display.Sprite;
 
@@ -15,14 +13,13 @@ public class Shape extends Sprite  implements IArea  {
         return 0;
     }
 
-    public function drawShape() {
+    public function drawShape():void {
     }
 
-
-    public function set scaleShape(scaleXY:Number) {
+    public function shapeReduce():void {
     }
 
-    public function get scaleShapeXY() {
+    public function destroy():void {
     }
 }
 }

@@ -31,7 +31,7 @@ public class Circle extends Shape{
         return Math.PI * radius * radius;
     }
 
-    override public function drawShape(){
+    override public function drawShape():void{
         trace("Circle.drawShape")
         var color:uint = Math.random() * 1000000;
 
@@ -50,11 +50,14 @@ public class Circle extends Shape{
         this.addChild(img);
     }
 
-    override public function set scaleShape(scanelXY:Number){
-        this.scaleShapeX = this.scaleShapeY = scanelXY;
+    override public function shapeReduce():void{
+        this.scaleX = this.scaleY = this.scaleX - 0.01;
     }
-    override public function get scaleShapeXY(){
-        return scaleShapeX;
+
+    override public function destroy():void {
+        if(this.parent){
+            this.parent.removeChild(this);
+        }
     }
 }
 }

@@ -39,12 +39,12 @@ public class MainView extends starling.display.Sprite{
         init();
     }
 
-    private function init(){
+    private function init():void{
         displayButton();
         displayTimeText();
     }
 
-    private function displayTimeText(){
+    private function displayTimeText():void{
         countDown = new CountDown();
         this.addChild(countDown);
 
@@ -52,7 +52,7 @@ public class MainView extends starling.display.Sprite{
 
         countDown.displayTimeText(_countDownTime);
     }
-    private function displayButton(){
+    private function displayButton():void{
         mainShape = new MainShape();
         mainShape.mainView = this;
         this.addChild(mainShape);
@@ -97,8 +97,8 @@ public class MainView extends starling.display.Sprite{
 
         _resetButton = new Button();
         _resetButton.y = TEXTURE_HEIGHT * 5;
-        var textureTwo:Texture = Texture.fromColor(_TEXTURE_WIDTH,TEXTURE_HEIGHT,0xaa00ff00);
-        _resetButton.defaultSkin = new Image(textureTwo);
+        var textureThree:Texture = Texture.fromColor(_TEXTURE_WIDTH,TEXTURE_HEIGHT,0xaa00ff00);
+        _resetButton.defaultSkin = new Image(textureThree);
         this.addChild(_resetButton);
         _resetButton.label = "reset";
         _resetButton.addEventListener(Event.TRIGGERED,onResetButtonTriggeredHandler);
@@ -122,18 +122,18 @@ public class MainView extends starling.display.Sprite{
         addEventListener(Event.ENTER_FRAME,enterFrameHandler);
     }
 
-    private function onResetButtonTriggeredHandler(event:Event){
+    private function onResetButtonTriggeredHandler(event:Event):void{
         countDown.reset(_countDownTime);
         _deleteShapeArea.text = "0";
         mainShape.resetShape();
     }
 
-    private function enterFrameHandler(e:Event){
+    private function enterFrameHandler(e:Event):void{
         mainShape.shapeReduce();
 
     }
 
-    public function  setdeleteShapeAreaText(text:String){
+    public function  setdeleteShapeAreaText(text:String):void{
     _deleteShapeArea.text =text;
     }
 

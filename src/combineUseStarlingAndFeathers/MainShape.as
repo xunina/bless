@@ -28,22 +28,23 @@ public class MainShape extends Sprite{
         initDisplayObject();
     }
 
-    private function initBackgroundColor(){
+    private function initBackgroundColor():void{
         this.x = 100;
         var bgTexture:Texture = Texture.fromColor(860,640,0x22999999);
         var bgImg:Image = new Image(bgTexture);
         this.addChildAt(bgImg,0);
     }
-    private function initDisplayObject(){
+    private function initDisplayObject():void{
         factory = new SimpleShapeFactory();
         shapeList = new Vector.<Shape>();
     }
 
-    public function shapeController(){
+    public function shapeController():void{
+        var typeShape:String;
         if(Math.random() < 0.5){
-            var typeShape:String = SimpleShapeFactory.CIRCLE;
+            typeShape = SimpleShapeFactory.CIRCLE;
         }else{
-            var typeShape:String = SimpleShapeFactory.SQUARE;
+            typeShape = SimpleShapeFactory.SQUARE;
         }
         var radius:Number = Math.random()*100+1;
         shape = factory.createShape(radius,typeShape);
@@ -52,7 +53,7 @@ public class MainShape extends Sprite{
         this.addChild(shape);
         shape.drawShape();//绘制shape
     }
-    private function getArea() {
+    private function getArea():Number {
         var area:Number = 0;
         for (var i:uint = 0; i < shapeList.length; i++) {
             area += shapeList[i].area;
@@ -60,40 +61,36 @@ public class MainShape extends Sprite{
         return area;
     }
     private var areaUint:uint = 0;
-    public function shapeReduce(){
+    public function shapeReduce():void{
         for(var i:uint = 0; i < shapeList.length; i++){
-            if(shapeList[i].scaleShapeXY < 0){
+            if(shapeList[i].scaleX < 0){
                 areaUint += shapeList[i].area;
                 mainView.setdeleteShapeAreaText(areaUint + "");
                 trace(areaUint+".....................");
 
                 deleteShape(i);
             }else{//是所有的shape都缩小
-                shapeList[i].scaleShape =shapeList[i].scaleShapeXY - 0.01;//后面存在机械误差，不可避免
-                shapeList[i].scaleX = shapeList[i].scaleY = shapeList[i].scaleShapeXY;
-                this.addChild(shapeList[i]);
-
+                shapeList[i].shapeReduce();
             }
         }
     }
 
-    public function resetShape(){
+    public function resetShape():void{
         trace("MainShape.resetShape");
         areaUint = 0;
         if(shapeList.length <= 0){
             return;
         }else{
             while(shapeList.length > 0) {
+
                 deleteShape(shapeList.length - 1);
             }
         }
     }
 
-    private function deleteShape(deleteI:uint){
-
-        this.removeChild(shapeList[deleteI]);
-        shapeList.removeAt(deleteI);
-
+    private function deleteShape(deleteI:uint):void{
+        shapeList[deleteI].destroy();
+        shapeList.splice(deleteI,1);
     }
 
 
