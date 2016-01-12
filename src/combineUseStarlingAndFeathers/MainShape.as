@@ -2,6 +2,7 @@
  * Created by nina.xu on 2016/1/7.
  */
 package combineUseStarlingAndFeathers {
+import combineUseStarlingAndFeathers.shape.Circle;
 import combineUseStarlingAndFeathers.shape.Shape;
 import combineUseStarlingAndFeathers.shape.SimpleShapeFactory;
 
@@ -10,6 +11,7 @@ import combineUseStarlingAndFeathers.shape.SimpleShapeFactory;
 import starling.display.Image;
 
 import starling.display.Sprite;
+import starling.events.Event;
 import starling.textures.Texture;
 
 /**
@@ -37,6 +39,7 @@ public class MainShape extends Sprite{
     private function initDisplayObject():void{
         factory = new SimpleShapeFactory();
         shapeList = new Vector.<Shape>();
+        this.addEventListener(Shape.SHAPE_DELETED,onShapeDeleteHandler);
     }
 
     public function shapeController():void{
@@ -44,14 +47,24 @@ public class MainShape extends Sprite{
         if(Math.random() < 0.5){
             typeShape = SimpleShapeFactory.CIRCLE;
         }else{
-            typeShape = SimpleShapeFactory.SQUARE;
-        }
+             typeShape = SimpleShapeFactory.SQUARE;
+       }
         var radius:Number = Math.random()*100+1;
         shape = factory.createShape(radius,typeShape);
         shapeList.push(shape);//shape放入数组
         trace(radius+"---"+getArea());//计算面积的总和
+
         this.addChild(shape);
         shape.drawShape();//绘制shape
+
+
+    }
+    private var areaUint:uint = 0;
+    private function onShapeDeleteHandler(event:Event):void {
+        var shape:Shape = event.data as Shape;
+        areaUint +=shape.area;
+        mainView.setdeleteShapeAreaText(areaUint + "");
+        deleteShape(shapeList.indexOf(shape));
     }
     private function getArea():Number {
         var area:Number = 0;
@@ -60,18 +73,10 @@ public class MainShape extends Sprite{
         }
         return area;
     }
-    private var areaUint:uint = 0;
+
     public function shapeReduce():void{
         for(var i:uint = 0; i < shapeList.length; i++){
-            if(shapeList[i].scaleX < 0){
-                areaUint += shapeList[i].area;
-                mainView.setdeleteShapeAreaText(areaUint + "");
-                trace(areaUint+".....................");
-
-                deleteShape(i);
-            }else{//是所有的shape都缩小
-                shapeList[i].shapeReduce();
-            }
+            shapeList[i].shapeReduce();
         }
     }
 
@@ -82,7 +87,6 @@ public class MainShape extends Sprite{
             return;
         }else{
             while(shapeList.length > 0) {
-
                 deleteShape(shapeList.length - 1);
             }
         }
