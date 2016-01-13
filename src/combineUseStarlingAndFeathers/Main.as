@@ -2,6 +2,8 @@
  * Created by nina.xu on 2015/12/31.
  */
 package combineUseStarlingAndFeathers {
+import feathers.themes.MultiStarlingStyleNameFunctionTheme;
+
 import flash.display.Sprite;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
@@ -10,6 +12,7 @@ import flash.events.Event;
 import starling.core.Starling;
 [SWF(width="960",height="640",frameRate="60",backgroundColor="#DDDDDD")]
 public class Main extends Sprite{
+    private var _functionTheme:MultiStarlingStyleNameFunctionTheme;
     private var _myStarling:Starling;
     public function Main() {
         if(this.stage){
@@ -20,14 +23,12 @@ public class Main extends Sprite{
         }
         this.loaderInfo.addEventListener(Event.COMPLETE, loaderInfo_completeHandler);
     }
-    public function loaderInfo_completeHandler(e:Event):void{
-
+    public function loaderInfo_completeHandler(e:Event = null):void{
         _myStarling = new Starling(MainView,this.stage);
         _myStarling.showStats = true;
         _myStarling.start();
 
         this.stage.addEventListener(Event.RESIZE, stage_resizeHandler, false, int.MAX_VALUE, true);//stage大小改变时调度
-
     }
 
     private function stage_resizeHandler(e:Event):void{

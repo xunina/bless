@@ -5,8 +5,8 @@ package combineUseStarlingAndFeathers.shape {
 
 
 public interface IArea {
-    function get type():String;//绘制的图形类型
-    function get area():Number;//该图形的面积
+
+    function get area():Number;
     function drawShape():void;
     function shapeReduce():void;
     function destroy():void;

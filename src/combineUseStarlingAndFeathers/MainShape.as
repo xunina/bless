@@ -2,11 +2,7 @@
  * Created by nina.xu on 2016/1/7.
  */
 package combineUseStarlingAndFeathers {
-import combineUseStarlingAndFeathers.shape.Circle;
 import combineUseStarlingAndFeathers.shape.Shape;
-import combineUseStarlingAndFeathers.shape.SimpleShapeFactory;
-
-
 
 import starling.display.Image;
 
@@ -18,7 +14,6 @@ import starling.textures.Texture;
  *放置产生的shape的容器
  */
 public class MainShape extends Sprite{
-    private var factory:SimpleShapeFactory;
     private var shape:Shape;
     private var shapeList:Vector.<Shape>;
 
@@ -37,27 +32,19 @@ public class MainShape extends Sprite{
         this.addChildAt(bgImg,0);
     }
     private function initDisplayObject():void{
-        factory = new SimpleShapeFactory();
         shapeList = new Vector.<Shape>();
         this.addEventListener(Shape.SHAPE_DELETED,onShapeDeleteHandler);
     }
 
     public function shapeController():void{
-        var typeShape:String;
-        if(Math.random() < 0.5){
-            typeShape = SimpleShapeFactory.CIRCLE;
-        }else{
-             typeShape = SimpleShapeFactory.SQUARE;
-       }
-        var radius:Number = Math.random()*100+1;
-        shape = factory.createShape(radius,typeShape);
+
+        shape = new Shape();
         shapeList.push(shape);//shape放入数组
-        trace(radius+"---"+getArea());//计算面积的总和
 
-        this.addChild(shape);
         shape.drawShape();//绘制shape
+        this.addChild(shape);
 
-
+        trace("---"+getArea());//计算面积的总和
     }
     private var areaUint:uint = 0;
     private function onShapeDeleteHandler(event:Event):void {
